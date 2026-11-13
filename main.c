@@ -16,6 +16,18 @@ void affichage(char grille[3][3])
 	}
 }
 
+int joueur()
+{
+	int endroit	;
+
+	printf("Décidez où jouer (0-8) :\n");
+	scanf("%d", &endroit);
+	if(8<endroit<0)
+	{
+		printf("Tu as triché, fin du jeu ;)\n");
+	}
+}
+
 int main()
 {
 	char grille[3][3] = {{' ',' ',' '},{' ',' ',' '},{' ',' ',' '}};
