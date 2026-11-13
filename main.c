@@ -1,9 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int main()
+void affichage(char grille[3][3])
 {
-	char grille[3][3] = {{' ',' ',' '},{' ',' ',' '},{' ',' ',' '}};
 	int x=0;
 	int y=0;
 	while(y!=3)
@@ -15,4 +14,11 @@ int main()
 			printf("---------\n");
 		}
 	}
+}
+
+int main()
+{
+	char grille[3][3] = {{' ',' ',' '},{' ',' ',' '},{' ',' ',' '}};
+	affichage(grille);
+	return 0;
 }
