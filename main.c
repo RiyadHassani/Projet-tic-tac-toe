@@ -16,21 +16,38 @@ void affichage(char grille[3][3])
 	}
 }
 
+
+
+
 int joueur()
 {
-	int endroit	;
+    int endroit;
 
-	printf("Décidez où jouer (0-8) :\n");
-	scanf("%d", &endroit);
-	if(8<endroit<0)
-	{
-		printf("Tu as triché, fin du jeu ;)\n");
-	}
+    printf("Décidez où jouer (0-8) :\n");
+    if (scanf("%d", &endroit) != 1 || endroit < 0 || endroit > 8)
+    {
+        printf("Tu as triché, fin du jeu ;)\n");
+        return -1;
+    }
+    return endroit;
 }
+
+
 
 int main()
 {
 	char grille[3][3] = {{' ',' ',' '},{' ',' ',' '},{' ',' ',' '}};
+	affichage(grille);
+	int coup = joueur();
+	if (coup == -1)
+	{
+    		return 0;
+	}
+	int x=0;
+        int y=0;
+	x=coup/3;
+	y=coup%3;
+	grille[x][y]='X';
 	affichage(grille);
 	return 0;
 }
