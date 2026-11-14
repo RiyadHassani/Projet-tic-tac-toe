@@ -1,5 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
+#include <unistd.h>
 
 void affichage(char grille[3][3])
 {
@@ -32,10 +34,17 @@ int joueur()
     return endroit;
 }
 
+int ordinateur()
+{
+	int endroit = rand() % 9;
+	return endroit;
+}
+
 
 
 int main()
 {
+	srand(time(NULL));
 	char grille[3][3] = {{' ',' ',' '},{' ',' ',' '},{' ',' ',' '}};
 	affichage(grille);
 	int coup = joueur();
@@ -45,9 +54,19 @@ int main()
 	}
 	int x=0;
         int y=0;
-	x=coup/3;
-	y=coup%3;
+	y=coup/3;
+	x=coup%3;
 	grille[x][y]='X';
+	affichage(grille);
+	printf("Au tour de l'ordinateur\n");
+	sleep(2);
+	while (grille[x][y]!=' ')
+	{
+		coup = ordinateur();
+		y=coup/3;
+        	x=coup%3;
+	}
+	grille[x][y]='O';
 	affichage(grille);
 	return 0;
 }
