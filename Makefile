@@ -1,6 +1,10 @@
 NAME = tic-tac-toe
 
-SRCS = main.c
+SRCS = main.c \
+	afficher.c \
+	joueur.c \
+	ordinateur.c \
+	verif.c \
 
 CFLAGS = -Wall -Wextra -O2
 

@@ -1,69 +1,10 @@
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
 //Source externe, voir AIDE_EXTERIEURE.md 3/
 #include <unistd.h>
-
-//Fonction permettant d'afficher la grille
-void affichage(char grille[3][3])
-{
-	int x=0;
-	int y=0;
-	while(y!=3)
-	{
-		printf("%c | %c | %c \n", grille[x][y], grille[x+1][y],grille[x+2][y]);
-		y++;
-		if(y!=3)
-		{
-			printf("---------\n");
-		}
-	}
-}
-
-
-
-//Fonction appelée lorsque c'est le tour du joueur
-int joueur()
-{
-    int endroit;
-
-    printf("Décidez où jouer (0-8) :\n");
-    //Juste après on vérifie si le joueur a entré un chiffre entre 0 et 8, source externe utilisé (Voir le AIDE_EXTERIEURE.md 2/)
-    if (scanf("%d", &endroit) != 1 || endroit < 0 || endroit > 8)
-    {
-        printf("Tu as triché, fin du jeu ;)\n");
-	//Fini le programme si le joueur essaie de tricher
-        return -1;
-    }
-    return endroit;
-}
-
-//Fonction appelée lorsque c'est le tour de l'ordinateur
-int ordinateur()
-{
-	//Pour donner un aspet "Intelligent à l'ordinateur, j'ai simplement fait générer un nombre entre 0 et 8 qui représente une case de la grille, source externe utilisé (voir le AIDE_EXTERIEURE.md 3/)
-	int endroit = rand() % 9;
-	return endroit;
-}
-
-//Fonction appelée pour vérifier si il y a une condition de fin de jeu, victoire ou défaite.
-int verif(char grille[3][3])
-{
-    int i = 0;
-    //La boucle après à pour but de parcourir chaque colonne et ligne du tableau, avec i en variable, on check si la premiere ligne a des symbole identiques (sauf espace), puis deuxieme ligne,puis troisième, après même chose pour les colonnes.
-    while (i < 3)
-    {
-        if (grille[i][0] != ' ' && grille[i][0] == grille[i][1] && grille[i][1] == grille[i][2]) return 1;
-        if (grille[0][i] != ' ' && grille[0][i] == grille[1][i] && grille[1][i] == grille[2][i]) return 1;
-        i++;
-    //On vérifie après si il y a les mêmes symboles dans l'une des deux diagonales
-    }
-    if (grille[1][1] != ' ' && grille[0][0] == grille[1][1] && grille[1][1] == grille[2][2]) return 1;
-    if (grille[1][1] != ' ' && grille[0][2] == grille[1][1] && grille[1][1] == grille[2][0]) return 1;
-
-    return 0;
-}
-
+#include "tic_tac_toe.h"
 
 //On a après le main, le corps de tout le jeu qui dicte toute la chronologie de la partie.
 int main()
