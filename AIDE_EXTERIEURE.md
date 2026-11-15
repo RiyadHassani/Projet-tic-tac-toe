@@ -4,4 +4,4 @@
 
 3/Pour le nombre aléatoire: Fonction donné dans le cours pour le projet du nombre magique.
 
-4/Temps d'attente pendant le tour de l'ordinateur: Recherche google :"Comment Ajouter un temps d'attente en c". C'est la première réponse donnée par l'ia de google. 
+4/Temps d'attente pendant le tour de l'ordinateur: Recherche google :"Comment Ajouter un temps d'attente en c". C'est la première réponse donnée par l'ia de google. C'est après que j'ai vu que c'était dans l'énoncé du projet...

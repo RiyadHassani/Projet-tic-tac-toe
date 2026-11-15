@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
-//Source externe, voir README.md 3/
+//Source externe, voir AIDE_EXTERIEURE.md 3/
 #include <unistd.h>
 
 //Fonction permettant d'afficher la grille
@@ -28,7 +28,7 @@ int joueur()
     int endroit;
 
     printf("Décidez où jouer (0-8) :\n");
-    //Juste après on vérifie si le joueur a entré un chiffre entre 0 et 8, source externe utilisé (Voir le README.md 2/)
+    //Juste après on vérifie si le joueur a entré un chiffre entre 0 et 8, source externe utilisé (Voir le AIDE_EXTERIEURE.md 2/)
     if (scanf("%d", &endroit) != 1 || endroit < 0 || endroit > 8)
     {
         printf("Tu as triché, fin du jeu ;)\n");
@@ -41,7 +41,7 @@ int joueur()
 //Fonction appelée lorsque c'est le tour de l'ordinateur
 int ordinateur()
 {
-	//Pour donner un aspet "Intelligent à l'ordinateur, j'ai simplement fait générer un nombre entre 0 et 8 qui représente une case de la grille, source externe utilisé (voir le README.md 3/)
+	//Pour donner un aspet "Intelligent à l'ordinateur, j'ai simplement fait générer un nombre entre 0 et 8 qui représente une case de la grille, source externe utilisé (voir le AIDE_EXTERIEURE.md 3/)
 	int endroit = rand() % 9;
 	return endroit;
 }
@@ -68,9 +68,9 @@ int verif(char grille[3][3])
 //On a après le main, le corps de tout le jeu qui dicte toute la chronologie de la partie.
 int main()
 {
-	//srand(time(NULL)); vient d'une source externe (voir le README 3/), il est au début de main comme ça il va etre lancé dès le début et il n'y aura pas besoin d'attendre que la fonction ordinateur() se lance.
+	//srand(time(NULL)); vient d'une source externe (voir le AIDE_EXTERIEURE.md 3/), il est au début de main comme ça il va etre lancé dès le début et il n'y aura pas besoin d'attendre que la fonction ordinateur() se lance.
 	srand(time(NULL));
-	//Pour chaque case il y a un char ' ' (espace) qui sera modifié par X ou O par la suite. Source externe utilisée, lire le README.md 1/
+	//Pour chaque case il y a un char ' ' (espace) qui sera modifié par X ou O par la suite. Source externe utilisée, lire le AIDE_EXTERIEURE.md 1/
 	char grille[3][3] = {{' ',' ',' '},{' ',' ',' '},{' ',' ',' '}};
 	affichage(grille);
 	int coups = 0;
@@ -117,7 +117,7 @@ int main()
 
 
 		printf("Au tour de l'ordinateur...\n");
-		//Temps d'atente sinon la partie est illisible, source externe utilisée (voir le README.md 4/ )
+		//Temps d'atente sinon la partie est illisible, source externe utilisée (voir le AIDE_EXTERIEURE.md 4/ )
 		sleep(2);
 		while (grille[x][y]!=' ')
 		{
